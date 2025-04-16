@@ -24,7 +24,7 @@ function sendWithTimeout(message, timeout, responseTimeout = 800) {
   
         // Retrasar la ejecución de port.off para dar tiempo a recibir todo el paquete
         clearTimeout(responseTimeoutId); // Limpiar el timeout anterior
-        responseTimeoutId = setTimeout(() => {
+        responseTimeoutId = setTimeout(() =>{ 
           port.off('data', dataListener); // Dejar de escuchar más datos
           resolve(receivedData.trim()); // Resolver la promesa con los datos recibidos
         }, responseTimeout); // Esperar un tiempo adicional después del último dato recibido
